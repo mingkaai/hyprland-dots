@@ -1,0 +1,47 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+  "margin-left": 10,
+  "margin-right": 10,
+  "margin-top": 0,
+  "margin-bottom": -20,
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "reload_style_on_change": true,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": [],
+  "modules-right": ["tray"],
+
+  "tray": {
+    "padding": 5,
+    "show-passive-items": false,
+    "icons": {
+      "blueman": "/home/k/Downloads/blueman.jpg"
+    }
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+		"1": "一",
+		"2": "二",
+		"3": "三",
+		"4": "四",
+		"5": "五",
+    "6": "六",
+    "7": "七",
+    "8": "八",
+    "9": "九",
+    "10": "十",
+    }
+  },
+
+  "custom/power": {
+    "format": "关",
+    "tooltip": "Power Off",
+    "on-click": "poweroff",
+  },
+}
