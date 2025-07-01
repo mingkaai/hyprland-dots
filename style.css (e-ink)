@@ -1,0 +1,42 @@
+* {
+  /* font-family: Atkinson Hyperlegible Mono ExtraLight, FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
+  font-family: "Atkinson Hyperlegible Mono ExtraLight";
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+window#waybar {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+#custom-power {
+  font-weight:500;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#workspaces{
+}
+
+#workspaces button {
+}
+
+#workspaces button.active {
+  font-weight: 800;
+  text-shadow: 1px 1px 0 #000000;
+  color: #000000;
+}
+
+#workspaces button.inactive {
+  font-weight: 100;
+  color: #808080;
+}
+
+#tray {
+  font-weight: bold;
+  color: #000000;
+}
