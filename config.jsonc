@@ -1,0 +1,62 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+  "margin-left": 20,
+  "margin-right": 20,
+  "margin-top": 0,
+  "margin-bottom": -20,
+    "exclusive": true,
+    "passthrough": true,
+    "gtk-layer-shell": true,
+    "reload_style_on_change": true,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": [],
+  "modules-right": ["tray", "battery"],
+
+  "tray": {
+    "padding": 5,
+    "show-passive-items": false,
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+		"1": "一",
+		"2": "二",
+		"3": "三",
+		"4": "四",
+		"5": "五",
+    "6": "六",
+    "7": "七",
+    "8": "八",
+    "9": "九",
+    "10": "十",
+    }
+  },
+  
+
+    "battery": {
+      "interval": 60,
+      "states": {
+          "good": 95,
+          "warning": 30,
+          "critical": 20
+      },
+      "format": "{icon}",
+      "rotate": 0,
+      "format-charging": "<span color='#a6d189'>󱐋</span>",
+      "format-plugged": "󰂄",
+      "format-icons": ["|","||","|||","||||","|||||","||||||","|||||||","||||||||","|||||||||", "||||||||||"],
+},
+
+
+  },
+
+    "custom/power": {
+    "format": "关",
+    "tooltip": "Power Off",
+    "on-click": "poweroff",
+  },
+}
