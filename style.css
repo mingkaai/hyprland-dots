@@ -1,11 +1,11 @@
 * {
   /* font-family: Atkinson Hyperlegible Mono ExtraLight, FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
-  font-family: "Atkinson Hyperlegible Mono ExtraLight";
+  font-family: "AR PL UKai CN";
   border: none;
   box-shadow: none;
   border-radius: 0;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 window#waybar {
@@ -42,4 +42,9 @@ window#waybar {
 
 #battery {
   font-weight: 500;
+}
+
+#network {
+  font-weight: 500;
+  font-size: 10px;
 }
