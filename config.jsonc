@@ -1,12 +1,13 @@
 
+
 {
     "layer": "top",
-    "position": "top",
+    "position": "left",
     "mod": "dock",
-  "margin-left": 20,
-  "margin-right": 20,
+  "margin-left": 0,
+  "margin-right": -10,
   "margin-top": 0,
-  "margin-bottom": -20,
+  "margin-bottom": 0,
     "exclusive": true,
     "passthrough": true,
     "gtk-layer-shell": true,
@@ -14,9 +15,10 @@
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": [],
-  "modules-right": ["tray", "battery"],
+  "modules-right": ["tray","network", "battery"],
 
   "tray": {
+    "format": "{icon}",
     "padding": 10,
     "show-passive-items": false,
   },
@@ -46,18 +48,17 @@
           "critical": 20
       },
       "format": "{icon}",
-      "rotate": 0,
-      "format-charging": "充 {icon}",
-      "format-plugged": "完成 {icon}",
-      "format-icons": ["|","| |"," | | |","| | | |","| | | | |","| | | | | |","| | | | | | |","| | | | | | | |","| | | | | | | | |", "| | | | | | | | | |"],
+      "rotate": 90,
+      "format-charging": "-{icon}+",
+      "format-plugged": "/{icon}/",
+      "format-icons": ["", "|", "||", "|||", "||||", "|||||", "||||||", "|||||||", "||||||||", "|||||||||","||||||||||"],
 },
 
-
-  },
-
-    "custom/power": {
-    "format": "关",
-    "tooltip": "Power Off",
-    "on-click": "poweroff",
-  },
+    "network": {
+        "rotate": 0,
+        "format-wifi" : "无线",
+        "format-ethernet": "线",
+        "format-disconnected" : "!",
+        "tooltip": false
+    },
 }
