@@ -22,7 +22,7 @@ config.load_autoconfig(False)
 #   - qt-quick: Tell Qt Quick to use a software renderer instead of OpenGL. (`QT_QUICK_BACKEND=software`)
 #   - chromium: Tell Chromium to disable GPU support and use Skia software rendering instead. (`--disable-gpu`)
 #   - none: Don't force software rendering.
-c.qt.force_software_rendering = "software-opengl"
+c.qt.force_software_rendering = 'software-opengl'
 
 # Disable accelerated 2d canvas to avoid graphical glitches. On some
 # setups graphical issues can occur on sites like Google sheets and
@@ -34,7 +34,7 @@ c.qt.force_software_rendering = "software-opengl"
 #   - always: Disable accelerated 2d canvas
 #   - auto: Disable on Qt6 < 6.6.0, enable otherwise
 #   - never: Enable accelerated 2d canvas
-c.qt.workarounds.disable_accelerated_2d_canvas = "never"
+c.qt.workarounds.disable_accelerated_2d_canvas = 'never'
 
 # Which cookies to accept. With QtWebEngine, this setting also controls
 # other features with tracking capabilities similar to those of cookies;
@@ -58,7 +58,7 @@ c.qt.workarounds.disable_accelerated_2d_canvas = "never"
 #   - no-3rdparty: Accept cookies from the same origin only. This is known to break some sites, such as GMail.
 #   - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain. On QtWebEngine, this is the same as no-3rdparty.
 #   - never: Don't accept cookies at all.
-config.set("content.cookies.accept", "all", "chrome-devtools://*")
+config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
 
 # Which cookies to accept. With QtWebEngine, this setting also controls
 # other features with tracking capabilities similar to those of cookies;
@@ -82,7 +82,7 @@ config.set("content.cookies.accept", "all", "chrome-devtools://*")
 #   - no-3rdparty: Accept cookies from the same origin only. This is known to break some sites, such as GMail.
 #   - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain. On QtWebEngine, this is the same as no-3rdparty.
 #   - never: Don't accept cookies at all.
-config.set("content.cookies.accept", "all", "devtools://*")
+config.set('content.cookies.accept', 'all', 'devtools://*')
 
 # Allow websites to request geolocations.
 # Type: BoolAsk
@@ -90,7 +90,7 @@ config.set("content.cookies.accept", "all", "devtools://*")
 #   - true
 #   - false
 #   - ask
-config.set("content.geolocation", False, "https://duckduckgo.com")
+config.set('content.geolocation', False, 'https://duckduckgo.com')
 
 # Allow websites to request geolocations.
 # Type: BoolAsk
@@ -103,7 +103,7 @@ c.content.geolocation = False
 # Value to send in the `Accept-Language` header. Note that the value
 # read from JavaScript is always the global value.
 # Type: String
-config.set("content.headers.accept_language", "", "https://matchmaker.krunker.io/*")
+config.set('content.headers.accept_language', '', 'https://matchmaker.krunker.io/*')
 
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
@@ -120,11 +120,7 @@ config.set("content.headers.accept_language", "", "https://matchmaker.krunker.io
 # increased compatibility.  Note that the value read from JavaScript is
 # always the global value.
 # Type: FormatString
-config.set(
-    "content.headers.user_agent",
-    "Mozilla/5.0 ({os_info}; rv:136.0) Gecko/20100101 Firefox/139.0",
-    "https://accounts.google.com/*",
-)
+config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:136.0) Gecko/20100101 Firefox/139.0', 'https://accounts.google.com/*')
 
 # Which method of blocking ads should be used.  Support for Adblock Plus
 # (ABP) syntax blocklists using Brave's Rust library requires the
@@ -137,15 +133,15 @@ config.set(
 #   - adblock: Use Brave's ABP-style adblocker
 #   - hosts: Use hosts blocking
 #   - both: Use both hosts blocking and Brave's ABP-style adblocker
-c.content.blocking.method = "both"
+c.content.blocking.method = 'both'
 
 # Load images automatically in web pages.
 # Type: Bool
-config.set("content.images", True, "chrome-devtools://*")
+config.set('content.images', True, 'chrome-devtools://*')
 
 # Load images automatically in web pages.
 # Type: Bool
-config.set("content.images", True, "devtools://*")
+config.set('content.images', True, 'devtools://*')
 
 # Allow JavaScript to read from or write to the clipboard. With
 # QtWebEngine, writing the clipboard as response to a user interaction
@@ -157,39 +153,31 @@ config.set("content.images", True, "devtools://*")
 #   - access: Allow reading from and writing to the clipboard.
 #   - access-paste: Allow accessing the clipboard and pasting clipboard content.
 #   - ask: Prompt when requested (grants 'access-paste' permission).
-config.set("content.javascript.clipboard", "access-paste", "https://github.com")
+config.set('content.javascript.clipboard', 'access-paste', 'https://github.com')
 
 # Enable JavaScript.
 # Type: Bool
-config.set("content.javascript.enabled", True, "chrome-devtools://*")
+config.set('content.javascript.enabled', True, 'chrome-devtools://*')
 
 # Enable JavaScript.
 # Type: Bool
-config.set("content.javascript.enabled", True, "devtools://*")
+config.set('content.javascript.enabled', True, 'devtools://*')
 
 # Enable JavaScript.
 # Type: Bool
-config.set("content.javascript.enabled", True, "chrome://*/*")
+config.set('content.javascript.enabled', True, 'chrome://*/*')
 
 # Enable JavaScript.
 # Type: Bool
-config.set("content.javascript.enabled", True, "qute://*/*")
+config.set('content.javascript.enabled', True, 'qute://*/*')
 
 # Allow locally loaded documents to access remote URLs.
 # Type: Bool
-config.set(
-    "content.local_content_can_access_remote_urls",
-    True,
-    "file:///home/k/.local/share/qutebrowser/userscripts/*",
-)
+config.set('content.local_content_can_access_remote_urls', True, 'file:///home/k/.local/share/qutebrowser/userscripts/*')
 
 # Allow locally loaded documents to access other local URLs.
 # Type: Bool
-config.set(
-    "content.local_content_can_access_file_urls",
-    False,
-    "file:///home/k/.local/share/qutebrowser/userscripts/*",
-)
+config.set('content.local_content_can_access_file_urls', False, 'file:///home/k/.local/share/qutebrowser/userscripts/*')
 
 # Enable plugins in Web pages.
 # Type: Bool
@@ -197,15 +185,15 @@ c.content.plugins = True
 
 # List of user stylesheet filenames to use.
 # Type: List of File, or File
-c.content.user_stylesheets = ["~/.config/qutebrowser/css/monospace.css"]
+c.content.user_stylesheets = ['~/.config/qutebrowser/css/monospace.css']
 
 # CSS border value for hints.
 # Type: String
-c.hints.border = "2px solid #000000"
+c.hints.border = '2px solid #000000'
 
 # Padding (in pixels) for hints.
 # Type: Padding
-c.hints.padding = {"bottom": 0, "left": 1, "right": 1, "top": 0}
+c.hints.padding = {'bottom': 0, 'left': 1, 'right': 1, 'top': 0}
 
 # Rounding radius (in pixels) for the edges of hints.
 # Type: Int
@@ -230,7 +218,7 @@ c.prompt.radius = 0
 #   - never: Never show the scrollbar.
 #   - when-searching: Show the scrollbar when searching for text in the webpage. With the QtWebKit backend, this is equal to `never`.
 #   - overlay: Show an overlay scrollbar. On macOS, this is unavailable and equal to `when-searching`; with the QtWebKit backend, this is equal to `never`. Enabling/disabling overlay scrollbars requires a restart.
-c.scrolling.bar = "never"
+c.scrolling.bar = 'never'
 
 # Enable smooth scrolling for web pages. Note smooth scrolling does not
 # work with the `:scroll-px` command.
@@ -243,7 +231,7 @@ c.scrolling.smooth = True
 #   - always: Always show the statusbar.
 #   - never: Always hide the statusbar.
 #   - in-mode: Show the statusbar when in modes other than normal mode.
-c.statusbar.show = "in-mode"
+c.statusbar.show = 'in-mode'
 
 # When to show favicons in the tab bar. When switching this from never
 # to always/pinned, note that favicons might not be loaded yet, thus
@@ -253,11 +241,11 @@ c.statusbar.show = "in-mode"
 #   - always: Always show favicons.
 #   - never: Always hide favicons.
 #   - pinned: Show favicons only on pinned tabs.
-c.tabs.favicons.show = "never"
+c.tabs.favicons.show = 'never'
 
 # Padding (in pixels) around text for tabs.
 # Type: Padding
-c.tabs.padding = {"bottom": 0, "left": 0, "right": 0, "top": 0}
+c.tabs.padding = {'bottom': 0, 'left': 0, 'right': 0, 'top': 0}
 
 # Position of the tab bar.
 # Type: Position
@@ -266,7 +254,7 @@ c.tabs.padding = {"bottom": 0, "left": 0, "right": 0, "top": 0}
 #   - bottom
 #   - left
 #   - right
-c.tabs.position = "left"
+c.tabs.position = 'left'
 
 # Format to use for the tab title. The following placeholders are
 # defined:  * `{perc}`: Percentage as a string like `[10%]`. *
@@ -282,21 +270,21 @@ c.tabs.position = "left"
 # web page. * `{protocol}`: Protocol (http/https/...) of the current web
 # page. * `{audio}`: Indicator for audio/mute status.
 # Type: FormatString
-c.tabs.title.format = "{index}"
+c.tabs.title.format = '{index}'
 
 # Width (in pixels or as percentage of the window) of the tab bar if
 # it's vertical.
 # Type: PercOrInt
-c.tabs.width = "2%"
+c.tabs.width = '2%'
 
 # Padding (in pixels) for tab indicators.
 # Type: Padding
-c.tabs.indicator.padding = {"bottom": 2, "left": 0, "right": 1, "top": 2}
+c.tabs.indicator.padding = {'bottom': 2, 'left': 0, 'right': 1, 'top': 2}
 
 # Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 # for a blank page.
 # Type: FuzzyUrl
-c.url.default_page = "https://opnxng.com/"
+c.url.default_page = 'https://opnxng.com/'
 
 # Search engines which can be used via the address bar.  Maps a search
 # engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
@@ -317,16 +305,16 @@ c.url.default_page = "https://opnxng.com/"
 # the search engine name to the search term, e.g. `:open google
 # qutebrowser`.
 # Type: Dict
-c.url.searchengines = {"DEFAULT": "https://opnxng.com/?q={}"}
+c.url.searchengines = {'DEFAULT': 'https://opnxng.com/?q={}'}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = "https://opnxng.com"
+c.url.start_pages = 'https://opnxng.com'
 
 # Format to use for the window title. The same placeholders like for
 # `tabs.title.format` are defined.
 # Type: FormatString
-c.window.title_format = "{current_title}"
+c.window.title_format = '{current_title}'
 
 # Set the main window background to transparent.  This allows having a
 # transparent tab- or statusbar (might require a compositor such as
@@ -337,161 +325,165 @@ c.window.title_format = "{current_title}"
 # Type: Bool
 c.window.transparent = False
 
+# Default zoom level.
+# Type: Perc
+c.zoom.default = '150%'
+
 # Text color of the completion widget. May be a single color to use for
 # all columns or a list of three colors, one for each column.
 # Type: List of QtColor, or QtColor
-c.colors.completion.fg = "black"
+c.colors.completion.fg = 'black'
 
 # Background color of the completion widget for odd rows.
 # Type: QssColor
-c.colors.completion.odd.bg = "white"
+c.colors.completion.odd.bg = 'white'
 
 # Background color of the completion widget for even rows.
 # Type: QssColor
-c.colors.completion.even.bg = "white"
+c.colors.completion.even.bg = 'white'
 
 # Foreground color of completion widget category headers.
 # Type: QtColor
-c.colors.completion.category.fg = "black"
+c.colors.completion.category.fg = 'black'
 
 # Background color of the completion widget category headers.
 # Type: QssColor
-c.colors.completion.category.bg = "white"
+c.colors.completion.category.bg = 'white'
 
 # Background color of the selected completion item.
 # Type: QssColor
-c.colors.completion.item.selected.bg = "white"
+c.colors.completion.item.selected.bg = 'white'
 
 # Top border color of the selected completion item.
 # Type: QssColor
-c.colors.completion.item.selected.border.top = "black"
+c.colors.completion.item.selected.border.top = 'black'
 
 # Bottom border color of the selected completion item.
 # Type: QssColor
-c.colors.completion.item.selected.border.bottom = "black"
+c.colors.completion.item.selected.border.bottom = 'black'
 
 # Foreground color of the matched text in the selected completion item.
 # Type: QtColor
-c.colors.completion.item.selected.match.fg = "black"
+c.colors.completion.item.selected.match.fg = 'black'
 
 # Foreground color of the matched text in the completion.
 # Type: QtColor
-c.colors.completion.match.fg = "gray"
+c.colors.completion.match.fg = 'gray'
 
 # Color of the scrollbar in the completion view.
 # Type: QssColor
-c.colors.completion.scrollbar.bg = "black"
+c.colors.completion.scrollbar.bg = 'black'
 
 # Font color for hints.
 # Type: QssColor
-c.colors.hints.fg = "black"
+c.colors.hints.fg = 'black'
 
 # Background color for hints. Note that you can use a `rgba(...)` value
 # for transparency.
 # Type: QssColor
-c.colors.hints.bg = "white"
+c.colors.hints.bg = 'white'
 
 # Font color for the matched part of hints.
 # Type: QtColor
-c.colors.hints.match.fg = "gray"
+c.colors.hints.match.fg = 'gray'
 
 # Foreground color for prompts.
 # Type: QssColor
-c.colors.prompts.fg = "black"
+c.colors.prompts.fg = 'black'
 
 # Border used around UI elements in prompts.
 # Type: String
-c.colors.prompts.border = "2px solid black"
+c.colors.prompts.border = '2px solid black'
 
 # Background color for prompts.
 # Type: QssColor
-c.colors.prompts.bg = "white"
+c.colors.prompts.bg = 'white'
 
 # Foreground color of the statusbar.
 # Type: QssColor
-c.colors.statusbar.normal.fg = "black"
+c.colors.statusbar.normal.fg = 'black'
 
 # Background color of the statusbar.
 # Type: QssColor
-c.colors.statusbar.normal.bg = "white"
+c.colors.statusbar.normal.bg = 'white'
 
 # Foreground color of the URL in the statusbar on error.
 # Type: QssColor
-c.colors.statusbar.url.error.fg = "gray"
+c.colors.statusbar.url.error.fg = 'gray'
 
 # Foreground color of the URL in the statusbar for hovered links.
 # Type: QssColor
-c.colors.statusbar.url.hover.fg = "gray"
+c.colors.statusbar.url.hover.fg = 'gray'
 
 # Foreground color of the URL in the statusbar on successful load
 # (http).
 # Type: QssColor
-c.colors.statusbar.url.success.http.fg = "gray"
+c.colors.statusbar.url.success.http.fg = 'gray'
 
 # Foreground color of the URL in the statusbar on successful load
 # (https).
 # Type: QssColor
-c.colors.statusbar.url.success.https.fg = "gray"
+c.colors.statusbar.url.success.https.fg = 'gray'
 
 # Foreground color of the URL in the statusbar when there's a warning.
 # Type: QssColor
-c.colors.statusbar.url.warn.fg = "gray"
+c.colors.statusbar.url.warn.fg = 'gray'
 
 # Background color of the tab bar.
 # Type: QssColor
-c.colors.tabs.bar.bg = "white"
+c.colors.tabs.bar.bg = 'white'
 
 # Color gradient start for the tab indicator.
 # Type: QtColor
-c.colors.tabs.indicator.start = "black"
+c.colors.tabs.indicator.start = 'black'
 
 # Color gradient end for the tab indicator.
 # Type: QtColor
-c.colors.tabs.indicator.stop = "white"
+c.colors.tabs.indicator.stop = 'white'
 
 # Color for the tab indicator on errors.
 # Type: QtColor
-c.colors.tabs.indicator.error = "gray"
+c.colors.tabs.indicator.error = 'gray'
 
 # Foreground color of unselected odd tabs.
 # Type: QtColor
-c.colors.tabs.odd.fg = "black"
+c.colors.tabs.odd.fg = 'black'
 
 # Background color of unselected odd tabs.
 # Type: QtColor
-c.colors.tabs.odd.bg = "white"
+c.colors.tabs.odd.bg = 'white'
 
 # Foreground color of unselected even tabs.
 # Type: QtColor
-c.colors.tabs.even.fg = "black"
+c.colors.tabs.even.fg = 'black'
 
 # Background color of unselected even tabs.
 # Type: QtColor
-c.colors.tabs.even.bg = "white"
+c.colors.tabs.even.bg = 'white'
 
 # Foreground color of selected odd tabs.
 # Type: QtColor
-c.colors.tabs.selected.odd.fg = "white"
+c.colors.tabs.selected.odd.fg = 'white'
 
 # Background color of selected odd tabs.
 # Type: QtColor
-c.colors.tabs.selected.odd.bg = "black"
+c.colors.tabs.selected.odd.bg = 'black'
 
 # Foreground color of selected even tabs.
 # Type: QtColor
-c.colors.tabs.selected.even.fg = "white"
+c.colors.tabs.selected.even.fg = 'white'
 
 # Background color of selected even tabs.
 # Type: QtColor
-c.colors.tabs.selected.even.bg = "black"
+c.colors.tabs.selected.even.bg = 'black'
 
 # Background color of pinned unselected odd tabs.
 # Type: QtColor
-c.colors.tabs.pinned.odd.bg = "gray"
+c.colors.tabs.pinned.odd.bg = 'gray'
 
 # Background color of pinned unselected even tabs.
 # Type: QtColor
-c.colors.tabs.pinned.even.bg = "gray"
+c.colors.tabs.pinned.even.bg = 'gray'
 
 # Value to use for `prefers-color-scheme:` for websites. The "light"
 # value is only available with QtWebEngine 5.15.2+. On older versions,
@@ -503,46 +495,46 @@ c.colors.tabs.pinned.even.bg = "gray"
 #   - auto: Use the system-wide color scheme setting.
 #   - light: Force a light theme.
 #   - dark: Force a dark theme.
-c.colors.webpage.preferred_color_scheme = "light"
+c.colors.webpage.preferred_color_scheme = 'light'
 
 # Default font families to use. Whenever "default_family" is used in a
 # font setting, it's replaced with the fonts listed here. If set to an
 # empty value, a system-specific monospace default is used.
 # Type: List of Font, or Font
-c.fonts.default_family = "OpenDyslexicM Nerd Font Mono"
+c.fonts.default_family = 'OpenDyslexicM Nerd Font Mono'
 
 # Default font size to use. Whenever "default_size" is used in a font
 # setting, it's replaced with the size listed here. Valid values are
 # either a float value with a "pt" suffix, or an integer value with a
 # "px" suffix.
 # Type: String
-c.fonts.default_size = "11pt"
+c.fonts.default_size = '20pt'
 
 # Font used for the context menu. If set to null, the Qt default is
 # used.
 # Type: Font
-c.fonts.contextmenu = "opendyslexicmnerdfontmono"
+c.fonts.contextmenu = 'opendyslexicmnerdfontmono'
 
 # Font used for the hints.
 # Type: Font
-c.fonts.hints = "bold default_size default_family"
+c.fonts.hints = 'bold default_size default_family'
 
 # Font family for standard fonts.
 # Type: FontFamily
-c.fonts.web.family.standard = "opendyslexicmnerdfontmono"
+c.fonts.web.family.standard = 'opendyslexicmnerdfontmono'
 
 # Font family for fixed fonts.
 # Type: FontFamily
-c.fonts.web.family.fixed = "opendyslexicmnerdfontmono"
+c.fonts.web.family.fixed = 'opendyslexicmnerdfontmono'
 
 # Font family for serif fonts.
 # Type: FontFamily
-c.fonts.web.family.serif = "opendyslexicmnerdfontmono"
+c.fonts.web.family.serif = 'opendyslexicmnerdfontmono'
 
 # Font family for sans-serif fonts.
 # Type: FontFamily
-c.fonts.web.family.sans_serif = "opendyslexicmnerdfontmono"
+c.fonts.web.family.sans_serif = 'opendyslexicmnerdfontmono'
 
 # Bindings for normal mode
-config.bind("t", "open -t")
-config.bind("x", "tab-close")
+config.bind('t', 'open -t')
+config.bind('x', 'tab-close')
