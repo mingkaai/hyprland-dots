@@ -1,5 +1,8 @@
+#For Dasung Paperlike-HDFT 2019
 
 
+# Monitor 
+monitor=,2200x1650,auto,1
 ###################
 ### MY PROGRAMS ###
 ###################
@@ -29,7 +32,7 @@ exec-once = waybar
 #############################
 
 # See https://wiki.hyprland.org/Configuring/Environment-variables/
-
+env = XCURSOR_THEME, Babita-Modern-Ice
 env = XCURSOR_SIZE,24
 env = HYPRCURSOR_SIZE,24
 
@@ -62,17 +65,16 @@ cursor {
 
 # https://wiki.hyprland.org/Configuring/Variables/#general
 general {
-    gaps_in = 5
-    gaps_out = 20
-
-    border_size = 2
+    gaps_in = 16
+    gaps_out = 16
+    border_size = 4
 
     # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
-    col.active_border = rgb(000000)
-    col.inactive_border = rgb(808080)
+    col.active_border = rgb(161616)
+    col.inactive_border = rgb(161616)
 
     # Set to true enable resizing windows by clicking and dragging on borders and gaps
-    resize_on_border = false
+    resize_on_border = true
 
     # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
     allow_tearing = false
@@ -91,13 +93,9 @@ decoration {
 
     shadow {
         enabled = true
-        range = 1
-        render_power = 3
-        sharp = true
-        color = rgb(000000)
-        color_inactive = rgb(FFFFFF)
-        offset = 4, 4
-        scale = 1.0
+        range = 0
+        color = rgb(424242)
+        offset = 12, 12
     }
 
     # https://wiki.hyprland.org/Configuring/Variables/#blur
@@ -169,9 +167,7 @@ misc {
     vfr = 1
     vrr = 1
     background_color = rgb(FFFFFF)
-    render_ahead_of_time = true
-    render_ahead_safezone = 2
-}
+    }
 
 
 #############
@@ -224,15 +220,17 @@ bind = $mainMod, W, exec, pkill waybar || waybar
 bind = $mainMod, E, exit,
 
 bind = $mainMod, I, exec, pkill fcitx5 || fcitx5
+bind = $mainMod, O, exec, libreoffice
+bind = $mainMod, P, exec,
 
 #file + menu
 bind = $mainMod, N, exec, $fileManager
-bind = $mainMod, M, exec, $menu
+bind = $mainMod, M, exec, kitty btop
 
 #programs row
 
-bind = $mainMod, A, exec, kitty btop
-bind = $mainMod, S, exec, steam
+bind = $mainMod, A, exec, $menu
+bind = $mainMod, S, exec,
 bind = $mainMod, D, exec, 
 bind = $mainMod, F, exec, $browser
 bind = $mainMod, G, exec, 
@@ -240,6 +238,8 @@ bind = $mainMod, G, exec,
 #window manipulation row
 bind = $mainMod, Z, pseudo, # dwindle
 bind = $mainMod, X, togglesplit, # dwindle
+bind = $mainMod, C, fullscreen,
+
 bind = $mainMod, V, togglefloating,
 
 bind = $mainMod, B, exec, blueman-manager
@@ -289,16 +289,23 @@ bind = $mainMod CTRL, J, movewindow, d
 bind = $mainMod CTRL, K, movewindow, u
 bind = $mainMod CTRL, L, movewindow, r
 
+bind = $mainMod ALT, H, swapwindow, l                                                    # Swap tiled window left
+bind = $mainMod ALT, J, swapwindow, d                                                   # Swap tiled window right
+bind = $mainMod ALT, K, swapwindow, u                                                      # Swap tiled window up
+bind = $mainMod ALT, L, swapwindow, r
+
+binde = ALT,Tab,cyclenext
+# Cycle between windows
+# Swap tiled window down
 bindm = $mainMod, mouse:273, resizewindow
 bind = $mainMod SHIFT, H, resizeactive, -10 0
 bind = $mainMod SHIFT, J, resizeactive, 0 10
 bind = $mainMod SHIFT, K, resizeactive, 0 -10
 bind = $mainMod SHIFT, L, resizeactive, 10 0
 
-
 # Laptop multimedia keys for volume and LCD brightness
-bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
-bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+
+bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-
 bindel = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindel = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
@@ -316,10 +323,31 @@ bindl = , XF86AudioPrev, exec, playerctl previous
 # See https://wiki.hyprland.org/Configuring/Workspace-Rules/ for workspace rules
 
 # Example windowrule
-# windowrule = float,class:^(kitty)$,title:^(kitty)$
+windowrule = float,class:^(blueman-manager)$
+windowrule = float,class:^(nwg-look)$
+windowrule = float,class:^(kitty btop)$
 
 # Ignore maximize requests from apps. You'll probably like this.
 windowrule = suppressevent maximize, class:.*
 
 # Fix some dragging issues with XWayland
-wwindowrule = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
+windowrule = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
+
+#misc rules
+windowrule = center, title:^(Open File)(.*)$
+windowrule = center, title:^(Select a File)(.*)$
+windowrule = center, title:^(Choose wallpaper)(.*)$
+windowrule = center, title:^(Open Folder)(.*)$
+windowrule = center, title:^(Save As)(.*)$
+windowrule = center, title:^(Library)(.*)$
+windowrule = center, title:^(File Upload)(.*)$
+windowrule = float, title:^(Open File)(.*)$
+windowrule = float, title:^(Select a File)(.*)$
+windowrule = float, title:^(Choose wallpaper)(.*)$
+windowrule = float, title:^(Open Folder)(.*)$
+windowrule = float, title:^(Save As)(.*)$
+windowrule = float, title:^(Library)(.*)$
+windowrule = float, title:^(File Upload)(.*)$
+
+#workspace rules
+workspace=special,gasp_in:32,gaps_out:65
